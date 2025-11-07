@@ -8,14 +8,21 @@
 </head>
 <body>
     <script>
+        let = img;
+function preload(){
+    img = loadImage(falling-leaves-autumn-texture-overlay.png);
+}
 function setup(){
     createCanvas(windowWidth, windowHeight);
-    background("orange");
+    background(255, 182, 10);
   
+}
+function draw(){
+    image(img, 0, 0);
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-   background("orange");
+   background(255, 182, 10);
 }
 
     </script>
