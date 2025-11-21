@@ -9,9 +9,10 @@
 <body>
     <script>
         let img ;
+        let img2 ;
 function preload(){
     img = loadImage("falling-leaves-autumn-texture-overlay.png");
-
+    img2 = loadImage("speech-bubble-md.png")
 }
 function setup(){
     createCanvas(windowWidth, windowHeight);
@@ -21,6 +22,7 @@ function setup(){
 }
 function draw(){
     image(img, 0, 0);
+    image(img2,0,0 )
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
