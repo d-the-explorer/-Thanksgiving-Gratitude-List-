@@ -26,8 +26,13 @@ function setup(){
   
 }
 function draw(){
+    background(255, 182, 10)
+    image(img, 0, 0);
+    img.resize(windowWidth, windowHeight);
     image(img, 0, 0);
     image(img2,180,150);
+    img.resize(windowWidth, windowHeight);
+    image(img2,180,150)
     fill("black");
     textFont('Playfair Display',50);
     text('Tanksgiving!', 110, 20);
