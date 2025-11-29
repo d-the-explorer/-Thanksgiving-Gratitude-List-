@@ -14,10 +14,14 @@
         let img ;
         let img2 ;
         let myInput ;
+
+
 function preload(){
     img = loadImage("falling-leaves-autumn-texture-overlay.png");
     img2 = loadImage("speech-bubble-md.png")
 }
+
+
 function setup(){
     createCanvas(windowWidth, windowHeight);
     background(255, 182, 10);
@@ -25,18 +29,23 @@ function setup(){
      myInput.position(240,120);
   
 }
+
+
 function draw(){
+
     background(255, 182, 10)
     image(img, 0, 0);
     img.resize(windowWidth, windowHeight);
     image(img, 0, 0);
     image(img2,180,150);
-    img.resize(windowWidth, windowHeight);
+    img2.resize(windowWidth, windowHeight);
     image(img2,180,150)
     fill("black");
     textFont('Playfair Display',50);
     text('Tanksgiving!', 110, 20);
 }
+
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
    background(255, 182, 10);
