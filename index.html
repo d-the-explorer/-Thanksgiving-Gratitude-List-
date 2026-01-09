@@ -6,60 +6,66 @@
     <title> ~ Thanksgiving Gratitude List ~ </title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <script>
-        let img ;
-        let img2 ;
-        let myInput ;
-        var wishQuotes =[]; 
+        let img;
+        let img2;
+        let myInput;
+        var wishQuotes = []; 
 
+        function preload() {
+            img = loadImage("img.jpg");
+            img2 = loadImage("image.png");
+        }
 
-function preload(){
-    img = loadImage("img.jpg");
-    img2 = loadImage("image.png")
-}
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            background(255, 182, 10);
 
+            myInput = createInput();
+            myInput.position(windowWidth / 2 - windowWidth / 4, 150);
+            
+            let subMIT = createButton('SUBMIT');
+            subMIT.position(windowWidth / 2 - windowWidth / 4, 200); // Adjusted Y position to avoid overlap
+            subMIT.mousePressed(btl); // Fixed button behavior
+        }
 
-function setup(){
-    createCanvas(windowWidth, windowHeight);
-    background(255, 182, 10);
-     myInput = createInput();
-     myInput.position(windowWidth/2-windowWidth/4,150);
-    let subMIT = createButton('SUBMIT');
-    subMIT.position(windowWidth/2-windowWidth/4,150);
-    subMIT.mousePressed();
-}
+        function btl() {
+            wishQuotes.push(myInput.value());
+            myInput.value(''); // Clear input after submission
+        }
 
-    function btl(){
-        wishQuotes.push(myInput.value());
-    }
+        function draw() {
+            background(255, 182, 10);
+            img.resize(windowWidth, windowHeight);
+            image(img, 0, 0);
+            
+            img2.resize(windowWidth / 2, 0);
+            image(img2, windowWidth / 2 - windowWidth / 4, 150);
 
-function draw(){
+            fill("black");
+            textFont('Playfair Display', 50);
+            textSize(20);
+            text('Thanksgiving!', 110, 20);
+            
+            // Displaying how many quotes have been added
+            text('Total Quotes: ' + wishQuotes.length, 180, 200);
 
-    background(255, 182, 10)
-    img.resize(windowWidth, windowHeight);
-    image(img, 0, 0);
-    img2.resize(windowWidth/2, 0);
-    image(img2,windowWidth/2-windowWidth/4,150)
-    fill("black");
-    textFont('Playfair Display',50);
-    textSize (20);
-    text('Thanksgiving!', 110, 20);
-     let s = 'Thanksgiving!';
-    let w = textWidth(s);
-    text(wishQuotes.length,180, 200,)
-}
+            // Display each gratitude item below the total count
+            textSize(18);
+            for (let i = 0; i < wishQuotes.length; i++) {
+                text(wishQuotes[i], 180, 220 + i * 30); // Adjust position to avoid overlap
+            }
+        }
 
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-   background(255, 182, 10);
-}
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            background(255, 182, 10);
+        }
 
     </script>
-
 </body>
 </html>
